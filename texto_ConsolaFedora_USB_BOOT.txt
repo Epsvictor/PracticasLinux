@@ -1,0 +1,136 @@
+[Epsvictor@localhost ~]$ sudo su
+[root@localhost Epsvictor]# 18762502
+bash: 18762502: no se encontró la orden...
+[root@localhost Epsvictor]# sudo if=/home/Epsvictor/Descargas/Win10
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-AknS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-AknS] [-g group] [-h host] [-p prompt] [-U user] [-u user]
+            [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p
+            prompt] [-u user] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p
+            prompt] [-u user] file ...
+[root@localhost Epsvictor]# if=/home/Epsvictor/Descargas/Win10_1511_Spanish_x64.iso of=/dev/sdb5 bs=4M
+[root@localhost Epsvictor]# history 
+    1  dnf install git
+    2  exit
+    3  18762502
+    4  sudo if=/home/Epsvictor/Descargas/Win10
+    5  if=/home/Epsvictor/Descargas/Win10_1511_Spanish_x64.iso of=/dev/sdb5 bs=4M
+    6  history 
+[root@localhost Epsvictor]# clear
+
+[root@localhost Epsvictor]# umount/dev/sdb5
+bash: umount/dev/sdb5: No existe el fichero o el directorio
+[root@localhost Epsvictor]# umount /dev/sdb5
+umount: /dev/sdb5: no montado
+[root@localhost Epsvictor]# mkfs.vfat -f32 -n Win10 /dev/sdb5
+mkfs.fat 3.0.28 (2015-05-16)
+Bad number of FATs : 32
+Usage: mkfs.fat [-a][-A][-c][-C][-v][-I][-l bad-block-file][-b backup-boot-sector]
+       [-m boot-msg-file][-n volume-name][-i volume-id]
+       [-s sectors-per-cluster][-S logical-sector-size][-f number-of-FATs]
+       [-h hidden-sectors][-F fat-size][-r root-dir-entries][-R reserved-sectors]
+       [-M FAT-media-byte][-D drive_number]
+       [--invariant]
+       [--help]
+       /dev/name [blocks]
+[root@localhost Epsvictor]# man mks
+No manual entry for mks
+[root@localhost Epsvictor]# mount /dev/sdb5
+mount: no se puede encontrar /dev/sdb5 en /etc/fstab
+[root@localhost Epsvictor]# cd..
+bash: cd..: no se encontró la orden...
+[root@localhost Epsvictor]# cd-
+bash: cd-: no se encontró la orden...
+[root@localhost Epsvictor]# cd.
+bash: cd.: no se encontró la orden...
+[root@localhost Epsvictor]# exit
+exit
+[Epsvictor@localhost ~]$ fdisk -l
+fdisk: no se puede abrir /dev/sda: Permiso denegado
+fdisk: no se puede abrir /dev/mapper/fedora-root: Permiso denegado
+fdisk: no se puede abrir /dev/mapper/fedora-swap: Permiso denegado
+fdisk: no se puede abrir /dev/mapper/fedora-home: Permiso denegado
+fdisk: no se puede abrir /dev/sdb: Permiso denegado
+[Epsvictor@localhost ~]$ sudo fdisk -l
+[sudo] password for Epsvictor: 
+Disco /dev/sda: 465.8 GiB, 500107862016 bytes, 976773168 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 4096 bytes
+Tamaño de E/S (mínimo/óptimo): 4096 bytes / 4096 bytes
+Tipo de etiqueta de disco: gpt
+Identificador del disco: 23638D61-7719-445D-9DD2-A4A2696C097A
+
+Disposit.   Comienzo     Final  Sectores Tamaño Tipo
+/dev/sda1       2048    821247    819200   400M Entorno de recuperación de Windo
+/dev/sda2     821248   1435647    614400   300M Sistema EFI
+/dev/sda3    1435648 489103359 487667712 232.6G Datos básicos de Microsoft
+/dev/sda4  489103360 490127359   1024000   500M Sistema de ficheros de Linux
+/dev/sda5  490127360 976773119 486645760 232.1G Linux LVM
+
+
+Disco /dev/mapper/fedora-root: 50 GiB, 53687091200 bytes, 104857600 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 4096 bytes
+Tamaño de E/S (mínimo/óptimo): 4096 bytes / 4096 bytes
+
+
+Disco /dev/mapper/fedora-swap: 5.4 GiB, 5771362304 bytes, 11272192 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 4096 bytes
+Tamaño de E/S (mínimo/óptimo): 4096 bytes / 4096 bytes
+
+
+Disco /dev/mapper/fedora-home: 176.7 GiB, 189695787008 bytes, 370499584 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 4096 bytes
+Tamaño de E/S (mínimo/óptimo): 4096 bytes / 4096 bytes
+
+
+Disco /dev/sdb: 7.2 GiB, 7756087296 bytes, 15148608 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x0269b750
+
+Disposit.  Inicio Comienzo    Final Sectores Tamaño Id Tipo
+/dev/sdb1             1985 15132671 15130687   7.2G  f W95 Ext'd (LBA)
+/dev/sdb5             2048 15132671 15130624   7.2G  b W95 FAT32
+[Epsvictor@localhost ~]$ umount /dev/sdb5
+umount: /dev/sdb5: no montado
+[Epsvictor@localhost ~]$ sudo mkfs
+
+Modo de empleo:
+ mkfs [opciones] [-t <tipo>] [opciones-sisf] <dispositivo> [<tamaño>]
+
+Construye un sistema de ficheros de Linux.
+
+Opciones:
+ -t, --type=<tipo>  tipo de sistema de ficheros; si no se especifica, se usa ext2
+     opciones-sisf  parámetros para el constructor real del sistema de ficheros
+     <dispositivo>  ruta al dispositivo que se va a usar
+     <tamaño>       número de bloques que se van a usar en el dispositivo
+ -V, --verbose      explica lo que se está haciendo;
+                      especificar -V más de una vez provocará un «dry-run»
+ -V, --version      muestra la información de versión y sale;
+                      -V como --version debe ser la único opción
+ -h, --help         muestra esta ayuda y finaliza
+
+Para más detalles véase mkfs(8).
+[Epsvictor@localhost ~]$ sudo mkfs.vfat -F 32 -n Win10 /dev/sdb5
+[sudo] password for Epsvictor: 
+mkfs.fat 3.0.28 (2015-05-16)
+mkfs.fat: warning - lowercase labels might not work properly with DOS or Windows
+[Epsvictor@localhost ~]$ sudo dd if=/home/Epsvictor/Win10_1511_Spanish_x64.iso of/dev/sdb5 bs=4M
+dd: operando no reconocido «of/dev/sdb5»
+Pruebe 'dd --help' para más información.
+[Epsvictor@localhost ~]$ sudo dd if=/home/Epsvictor/Win10_1511_Spanish_x64.iso of=/dev/sdb5 bs=4M
+dd: No se puede abrir «/home/Epsvictor/Win10_1511_Spanish_x64.iso»: No existe el fichero o el directorio
+[Epsvictor@localhost ~]$ sudo dd if=/home/Epsvictor/Descargas/Win10_1511_Spanish_x64.iso of=/dev/sdb5 bs=4M
+952+1 registros leídos
+952+1 registros escritos
+3996631040 bytes (4.0 GB) copiados, 1052.39 s, 3.8 MB/s
+[Epsvictor@localhost ~]$ 
+
