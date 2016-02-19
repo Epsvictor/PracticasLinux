@@ -1,0 +1,31 @@
+﻿Codigo de linux (distribución Fedora) para montar y desmontar un USB:
+
+*sudo fdisk -l     
+*umount /dev/sdb5   
+*mount /dev/sdb5 
+
+
+
+
+Codigo de linux (distribución Fedora) para hacer un USB booteable:
+
+* sudo fdisk -l
+* umount /dev/sdb5
+* sudo mkfs.vfat -F 32 -n Win10 /dev/sdb5   //nos pide password para el comando sudo
+* sudo dd if=/home/Epsvictor/Descargas/Win10_1511_Spanish_x64.iso of=/dev/sdb5 bs=4M
+
+
+
+Descripción:
+
+sudo: Sirve para pedir ejecutar con permisos de administrador
+fdisk -l: comando para mostrar los dispositivos conectados al equipo
+umount: desmontar el Dispositivo
+mount: montar el dispositivo
+mkfs.vfat -F 32 -n Win10 /dev/sdb5 : formatear el dispositivo (en este caso el sdb5) con el nombre Win10 En formato Fat32 
+dd: copiar directorio
+if: ubicación del  directorio a copiar
+of: Destino de la copia
+bs=4M :  Es la velocidad a la que escribira el ISO en el Pendrive, bs significa Bytes/segundo
+         4M es el prefijo, significándose, 4 MegaByte        
+
